@@ -97,7 +97,7 @@ router.delete('/artists/:id', (req, res, next) => {
 
 router.get('/artists/:id/tracks', (req, res, next) => {
   knex('tracks')
-    .where('artists_id', req.params.id)
+    .where('artist_id', req.params.id)
     .orderBy('id')
     .then((track) => {
       res.send(track);
