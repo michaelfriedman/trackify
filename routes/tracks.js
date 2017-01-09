@@ -1,7 +1,9 @@
 'use strict';
 
 const express = require('express');
+
 const router = express.Router();
+
 const knex = require('../knex');
 
 router.get('/tracks', (_req, res, next) => {
@@ -48,7 +50,7 @@ router.post('/tracks', (req, res, next) => {
         .insert({
           artist_id: req.body.artist_id,
           title: req.body.title,
-          likes: req.body.likes
+          likes: req.body.likes,
         }, '*');
     })
     .then((tracks) => {
@@ -85,7 +87,7 @@ router.patch('/tracks/:id', (req, res, next) => {
         .update({
           artist_id: req.body.artist_id,
           title: req.body.title,
-          likes: req.body.likes
+          likes: req.body.likes,
         }, '*')
         .where('id', req.params.id);
     })
